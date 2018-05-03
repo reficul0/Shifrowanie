@@ -3,7 +3,7 @@
 
 //функция шифрования
 void Encoder::EncodeWordIntoString(char* str, const char encryptedWord)
-{
+{ 
 	for (int i(0); i < 7; ++i)
 	{
 		int mask = 1; 
