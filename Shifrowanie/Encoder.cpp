@@ -21,7 +21,7 @@ void Encoder::EncodeWordIntoString(char *str, const char encryptedWord)
 	for (size_t i(0); i < countSignificantBits; ++i)
 	{
 		unsigned char mask = 1; 
-		mask <<= i; //побитовый сдвиг единицы
+		mask <<= i;
 
 		// если в 8 бите шифруемого слова единица
 		if (encryptedWord & mask)
@@ -114,6 +114,7 @@ Encoder::Encoder()
 
 Encoder::Encoder(shared_ptr<char> && ifileName)
 {
-	SetFileName(std::move(ifileName));//устанавливаем имя файлу
+	//устанавливаем имя файла
+	SetFileName(std::move(ifileName));
 }
 
