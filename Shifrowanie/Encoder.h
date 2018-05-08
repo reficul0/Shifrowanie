@@ -1,22 +1,25 @@
 #pragma once
 #include "IEncoder.h"
 #include <fstream>
+#include <memory>
 
 using namespace std;
 class Encoder : public IEncoder
 {
 private:
-	char* _fileName;
+	shared_ptr<char> _fileName;
 
+	// шифрование символа среди последних битов 7 симолов
 	void EncodeWordIntoString(char *str, const char encryptedWord);
 
 public:
-	void SetFileName(const char *ifileName);
+	// сеттер имени файла
+	void SetFileName(shared_ptr<char> && ifileName);
 
-	void Encode();
+	// Зашифровать файл
+	bool Encode();
 
 	Encoder();
-	Encoder(const char *ifileName);
-	~Encoder();
+	Encoder(shared_ptr<char> &&ifileName);
 };
 
